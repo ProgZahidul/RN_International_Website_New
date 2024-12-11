@@ -1,0 +1,38 @@
+﻿@model RN_International_Website.Models.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<h1 class="text-center my-4">Product Details</h1>
+
+<div class="container">
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h2 class="card-title text-center mb-0">@Model.Title</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <p><strong>Description:</strong> @Model.Description</p>
+                    <p><strong>Brand:</strong> @Model.Brand</p>
+                    <p><strong>Price:</strong> @Model.Price.ToString("C")</p>
+                    <p><strong>Category:</strong> @Model.Category?.Name</p>
+                </div>
+                <div class="col-md-6 text-center">
+                    @if (!string.IsNullOrEmpty(Model.ImageUrl))
+                    {
+                        <img src="@Model.ImageUrl" alt="@Model.Title" class="img-fluid rounded" style="max-height: 300px;" />
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="card-footer text-end">
+            <a asp-action="Index" class="btn btn-secondary">Back to Products</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

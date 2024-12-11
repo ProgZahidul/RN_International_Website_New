@@ -1,0 +1,519 @@
+﻿/* custom.css */
+/* Hero Section Styles */
+.hero-section {
+    background-image: url('/images/image1.jpg'); /* Initial background image */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    height: 100vh; /* Makes the section height fill the entire viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Text color for contrast */
+    text-align: center;
+    transition: background-image 1s ease-in-out; /* Smooth transition between images */
+}
+
+/* Hero Content */
+.hero-content h1 {
+    font-size: 3rem; /* Large heading */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adds a shadow for better readability */
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Text shadow for readability */
+}
+
+.hero-content .btn {
+    background-color: #28a745; /* Green button */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+    .hero-content .btn:hover {
+        background-color: #218838; /* Darker green on hover */
+    }
+
+
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #6c757d;
+    transition: color 0.3s ease;
+}
+
+    .nav-link.active,
+    .nav-link:hover {
+        color: #28a745; /* Green Color */
+    }
+
+.btn-success {
+    background-color: #28a745;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-success:hover {
+        background-color: #218838;
+    }
+
+.dropdown-menu {
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .navbar-brand .logo-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-icon {
+        font-size: 2rem;
+    }
+
+    .logo-title {
+        font-size: 1.2rem;
+    }
+
+    .logo-subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-toggler {
+        display: block;
+    }
+
+    .navbar-collapse {
+        text-align: center;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.5rem 0;
+    }
+
+    .btn-success {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar-brand .logo-container {
+        text-align: center;
+    }
+
+    .logo-icon {
+        font-size: 1.5rem;
+    }
+
+    .logo-title,
+    .logo-subtitle {
+        font-size: 1rem;
+    }
+
+    .nav-link {
+        font-size: 0.8rem;
+    }
+
+    .btn-success {
+        font-size: 0.8rem;
+    }
+}
+
+
+
+/* Logo Styles */
+.logo-container {
+    display: flex;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.logo-icon {
+    font-size: 3rem; /* Icon size */
+    color: #28a745; /* Green color for agriculture */
+    margin-right: 10px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.logo-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #28a745; /* Green color */
+}
+
+.logo-subtitle {
+    font-size: 0.9rem;
+    color: #6c757d; /* Muted grey for the subtitle */
+}
+@media (max-width: 768px) {
+    .logo-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .logo-icon {
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    .logo-title {
+        font-size: 1.2rem;
+    }
+
+    .logo-subtitle {
+        font-size: 0.8rem;
+    }
+}
+/* Products Section */
+.products-section {
+    background-color: #f8f9fa; /* Light background color */
+    padding: 60px 0;
+}
+
+.product-member {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .product-member:hover {
+        transform: translateY(-10px);
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+.product-img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.product-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #343a40; /* Dark text */
+}
+
+.product-description {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 10px;
+    line-height: 1.5; /* Improve readability */
+}
+
+.product-price {
+    font-size: 1rem;
+    color: #343a40;
+    margin-bottom: 0;
+}
+
+/* Responsive Design for Products Section */
+/*@media (max-width: 768px) {
+    .product-member {
+        padding: 15px;
+    }
+
+    .product-title {
+        font-size: 1.3rem;
+    }
+
+    .product-description,
+    .product-price {
+        font-size: 0.9rem;
+    }
+}*/
+
+
+
+
+/* Team Section */
+.team-section {
+    background-color: #f8f9fa; /* Light background color */
+    padding: 60px 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #343a40; /* Dark text */
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #6c757d; /* Gray text */
+    margin-bottom: 40px;
+}
+
+.team-member {
+    background: #fff;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .team-member:hover {
+        transform: translateY(-10px);
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+.team-img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.team-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #343a40;
+    margin-bottom: 5px;
+}
+
+.team-role {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-bottom: 15px;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+.social-link {
+    font-size: 1.2rem;
+    color: #6c757d;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+    .social-link:hover {
+        color: #28a745; /* Green on hover */
+    }
+
+/* Contact Section */
+.contact-section {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #343a40;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #6c757d;
+    margin-bottom: 40px;
+}
+
+.contact-info {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+    .contact-info .info-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #343a40;
+        margin-bottom: 10px;
+    }
+
+    .contact-info p {
+        font-size: 1rem;
+        color: #6c757d;
+        margin-bottom: 15px;
+    }
+
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.contact-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+    .contact-form .form-group {
+        margin-bottom: 20px;
+    }
+
+    .contact-form label {
+        font-weight: bold;
+        color: #343a40;
+        margin-bottom: 5px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #28a745;
+            outline: none;
+            box-shadow: 0px 0px 5px rgba(40, 167, 69, 0.5);
+        }
+
+    .contact-form button {
+        background-color: #28a745;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        transition: background-color 0.3s ease;
+    }
+
+        .contact-form button:hover {
+            background-color: #218838;
+        }
+
+
+/* Footer Section */
+.footer {
+    background-color: #343a40;
+    
+    padding: 40px 0;
+    text-align: center;
+}
+
+    .footer h5 {
+        color: #28a745; /* Green color for headings */
+        margin-bottom: 20px; /* Increased margin for better spacing */
+        font-size: 1.25rem; /* Slightly larger font for headings */
+        text-transform: uppercase; /* Makes headings uppercase */
+    }
+
+.footer-text {
+    font-size: 1rem;
+    margin-bottom: 25px;
+    line-height: 1.6; /* Improved readability */
+}
+
+.footer-links,
+.our-services,
+.contact-info {
+    margin-bottom: 25px;
+    text-align: left; /* Align content to the left for better structure */
+}
+
+    .footer-links a,
+    .contact-info a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.3s ease-in-out;
+    }
+
+        .footer-links a:hover,
+        .contact-info a:hover {
+            color: #28a745; /* Green color on hover */
+        }
+
+.footer ul {
+    padding: 0;
+    list-style: none;
+    margin: 0; /* Ensure consistent spacing */
+}
+
+    .footer ul li {
+      
+        margin: 5px 0;
+        margin-bottom: 5px;
+        font-size: 0.95rem; /* Slightly smaller font for list items */
+    }
+
+.footer p {
+    
+    margin: 0;
+    margin-bottom: 10px;
+    font-size: 0.95rem; /* Keep font size consistent with other elements */
+    line-height: 1.5; /* Improve readability */
+}
+
+.footer .row {
+    margin: 0 auto;
+    max-width: 1200px; /* Limit width for larger screens */
+}
+
+.footer .col-md-4 {
+    margin-bottom: 20px; /* Add spacing between columns for smaller screens */
+}
+
+.footer .social-icons a {
+    margin: 0 10px;
+    color: #ffffff;
+    font-size: 1.25rem; /* Larger font size for social icons */
+    transition: color 0.3s ease-in-out;
+}
+
+    .footer .social-icons a:hover {
+        color: #28a745; /* Green color on hover */
+    }
+
+@media (max-width: 768px) {
+    .footer h5 {
+        font-size: 1.1rem; /* Adjust heading size for smaller screens */
+    }
+
+    .footer .row {
+        text-align: center; /* Center-align content on smaller screens */
+    }
+
+    .footer .col-md-4 {
+        margin-bottom: 15px;
+    }
+
+   
+}
+

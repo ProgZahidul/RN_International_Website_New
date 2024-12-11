@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RN International Website</title>
+
+    <!-- Stylesheets -->
+    
+    <link rel="stylesheet" href="~/css/custom.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top">
+        <div class="container">
+            <!-- Logo -->
+            <a href="@Url.Action("Index", "Home")" class="navbar-brand text-success fw-bold">
+                <div class="logo-container">
+                    <div class="logo-icon">🌱</div>
+                    <div class="logo-text">
+                        <span class="logo-title">RN International</span>
+                        <span class="logo-subtitle">Agro-Based Imports</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Toggler for Mobile View -->
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link @(ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Home")#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Home")#products">products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Home")#portfolio">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Home")#team">Team</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index", "Home")#contact">Contact</a>
+                    </li>
+                    
+
+                    <!-- Authenticated User Section -->
+                    @if (User.Identity != null && User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="TeamMembers" asp-action="Index">Team Member</a>
+                        </li>
+                    }
+                    <!-- Authenticated User Section -->
+                    @if (User.Identity != null && User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Categories" asp-action="Index"> Categories</a>
+                        </li>
+                    }
+                    <!-- Authenticated User Section -->
+                    @if (User.Identity != null && User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">Product</a>
+                        </li>
+                    }
+                    <!-- Authenticated User Section -->
+                    @if (User.Identity != null && User.Identity.IsAuthenticated)
+                    {
+                        <!-- Login Partial -->
+                        <partial name="_LoginPartial" />
+                    }
+                </ul>
+                <!-- Get Started Button -->
+                <a href="@Url.Action("Index", "Home")#about" class="btn btn-success rounded-pill px-4">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mt-5 pt-5">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="footer py-5 bg-light">
+        <div class="container text-center">
+            <!-- Footer Text -->
+            <p class="footer-text mb-4">
+                We are the largest importer and distributor of premium-quality feed ingredients and agricultural products, committed to supporting industries with reliable and sustainable solutions. Continuing the traditions of RN International, we prioritize quality and customer satisfaction.
+            </p>
+
+
+            <!-- Links -->
+            <div class="row">
+                <div class="col-md-3">
+                    <h5>Useful Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#terms">Terms of service</a></li>
+                        <li><a href="#privacy">Privacy policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>About Us</h5>
+                    <ul class="list-unstyled">
+                        <li>Poultry Meal & Soybean Meal</li>
+                        <li>Fish Meal & Fish Oil</li>
+                        <li>Wheat Flour & Broken Rice</li>
+                        <li>DDGS & Rice Polish</li>
+                        <li>Compound Premix & DCP</li>
+                        <li>Onions, Garlic & More</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-6">
+                    <h5 >Contact Us</h5>
+                    <div class="row">
+                        <div class="col-md-6 text-start">
+                            <h6>Head Office</h6>
+                            <p>Dhaka, Bangladesh</p>
+                            <p>Phone: +88 01323466770</p>
+                            <p>Email: dhakaoffice@example.com</p>
+                        </div>
+                        <div class="col-md-6 text-start">
+                            <h6>Chittagong Office</h6>
+                            <p>Chittagong, Bangladesh</p>
+                            <p>Phone: +88 01323466770</p>
+                            <p>Email: chittagongoffice@example.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Media -->
+            <div class="mt-4">
+                <a href="https://www.facebook.com" target="_blank" class="me-3"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.twitter.com" target="_blank" class="me-3"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com" target="_blank" class="me-3"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+
+            <!-- Copyright -->
+            <p class="mt-4">&copy; 2024 ProgZahidul. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

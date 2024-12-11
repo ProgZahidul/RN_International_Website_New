@@ -1,0 +1,209 @@
+﻿@model RN_International_Website.ViewModels.HomeIndexViewModel;
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<!-- Hero Section -->
+<section id="hero" class="hero-section">
+    <div class="hero-content">
+        <h1>Welcome to RN International</h1>
+        <p>Your trusted partner for agro-based imports</p>
+        <a href="#about" class="btn btn-primary">Learn More</a>
+    </div>
+</section>
+
+
+<!-- About Section -->
+<section id="about" class="py-5">
+    <div class="container">
+        <h2 class="text-center">About Us</h2>
+        <p class="text-center">
+            The company is the largest importer and distributor of Poultry Meal, Soybean Meal, Fish Meal, Fish Oil, Wheat Flour, DDGS, Full Fat Soya, Broken Rice, CGM, Rice Polish, DORB, Rape Seed, Salt, MCP, Choline Chloride, Compound Premix, DCP, Lime Stone, Soya Extension Cake, Sunflower Oil Cake, Palm Kernel Cake, Vegetable Fat, Soybean Meal Cake, Mustard Oil Cake, Sodium Bicarbonate, Onions, Garlic, and more. Continuing with the traditions of RN International, we are committed to quality and excellence.
+        </p>
+        <div class="row mt-4">
+            <div class="col-md-4 text-center">
+                <i class="bi bi-globe text-success fs-1"></i>
+                <h5>Global Reach</h5>
+                <p>We serve a diverse range of industries worldwide with high-quality products.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <i class="bi bi-check-circle text-success fs-1"></i>
+                <h5>Commitment to Quality</h5>
+                <p>Our products meet stringent quality standards to ensure customer satisfaction.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <i class="bi bi-award text-success fs-1"></i>
+                <h5>Trusted Partner</h5>
+                <p>Building long-lasting relationships through trust and integrity.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics Section -->
+<section class="bg-success text-white py-5">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-3">
+                <h2>232</h2>
+                <p>Clients</p>
+            </div>
+            <div class="col-md-3">
+                <h2>521</h2>
+                <p>Projects</p>
+            </div>
+            <div class="col-md-3">
+                <h2>1453</h2>
+                <p>Hours of Support</p>
+            </div>
+            <div class="col-md-3">
+                <h2>32</h2>
+                <p>Workers</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center">Why Choose Our Products?</h2>
+        <p class="text-center">We are the largest importer and distributor of high-quality feed ingredients and agricultural products, trusted for reliability and sustainability.</p>
+        <div class="row mt-4">
+            <div class="col-md-4 text-center">
+                <i class="bi bi-gem fs-1 text-success"></i>
+                <h5>Premium Quality</h5>
+                <p>We ensure top-quality products such as Poultry Meal, Soybean Meal, and Fish Oil to meet industry standards.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <i class="bi bi-box-seam fs-1 text-success"></i>
+                <h5>Extensive Range</h5>
+                <p>Our diverse product portfolio includes Wheat Flour, DDGS, Broken Rice, and other essential commodities.</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <i class="bi bi-briefcase fs-1 text-success"></i>
+                <h5>Trusted Expertise</h5>
+                <p>Continuing the traditions of RN International, we bring decades of experience and customer satisfaction.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Products Section -->
+<section id="products" class="products-section py-5 text-center">
+    <div class="container">
+        <h2 class="section-title">Our Products</h2>
+        <div class="row">
+            @foreach (var product in Model.Products)
+            {
+                <div class="col-lg-3 col-md-6 col-6">
+                    <div class="product-member">
+                        <img src="@product.ImageUrl" alt="@product.Title" class="product-img">
+                        <h4 class="product-title">@product.Title</h4>
+                        <a asp-action="Details" asp-controller="Product" target="_blank" asp-route-id="@product.Id" class="btn btn-sm btn-success">Details</a>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <a class="btn btn-success rounded-pill px-4" asp-area="" asp-controller="Product" asp-action="Index">All Products</a>
+</section>
+
+<br />
+
+<!-- Existing Team Section -->
+<section id="team" class="team-section py-5 text-center">
+    <div class="container">
+        <h2 class="section-title">Meet Our Team</h2>
+        <div class="row">
+            @foreach (var member in Model.TeamMembers)
+            {
+                <div class="col-lg-3 col-md-6 col-6">
+                    <div class="team-member">
+                        <img src="@member.PhotoUrl" alt="@member.Name" class="team-img">
+                        <h4 class="team-name">@member.Name</h4>
+                        <p class="team-role">@member.Role</p>
+                        <div class="social-links">
+                            @if (!string.IsNullOrEmpty(member.FacebookUrl))
+                            {
+                                <a href="@member.FacebookUrl" class="social-link" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            }
+                            @if (!string.IsNullOrEmpty(member.TwitterUrl))
+                            {
+                                <a href="@member.TwitterUrl" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                            }
+                            @if (!string.IsNullOrEmpty(member.LinkedInUrl))
+                            {
+                                <a href="@member.LinkedInUrl" class="social-link" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            }
+                            @if (!string.IsNullOrEmpty(member.InstagramUrl))
+                            {
+                                <a href="@member.InstagramUrl" class="social-link" target="_blank"><i class="fab fa-instagram"></i></a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<br />
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section py-5">
+    <div class="container">
+        <h2 class="section-title text-center">Contact Us</h2>
+        <p class="section-subtitle text-center">We are dedicated to providing top-quality products and services, ensuring customer satisfaction and building long-term trust.</p>
+        <div class="row">
+            <!-- Contact Information -->
+            <div class="col-md-6 mb-4">
+                <div class="contact-info">
+                    <h5 class="info-title">Address</h5>
+                    <p>Dhaka, Bangladesh</p>
+                    <h5 class="info-title">Call Us</h5>
+                    <p>+88 01323466770</p>
+                    <h5 class="info-title">Email Us</h5>
+                    <p>info@example.com</p>
+                </div>
+                <!-- Google Map -->
+                <div class="map-container mt-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3648.5692826551915!2d90.4112942153899!3d23.731125595387248!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b85bdbad4b89%3A0xf6639c356d91cdae!2sMotijheel%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1696610846481!5m2!1sen!2sbd"
+                            width="100%"
+                            height="350"
+                            style="border:0; border-radius: 10px;"
+                            allowfullscreen=""
+                            loading="lazy">
+                    </iframe>
+
+                </div>
+            </div>
+            <!-- Contact Form -->
+            <div class="col-md-6">
+                <form action="#" method="post" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" class="form-control" placeholder="Write your message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+
+
+
