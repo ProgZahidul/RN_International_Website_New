@@ -1,0 +1,58 @@
+﻿@model RN_International_Website.Models.TeamMember
+
+@{
+    ViewData["Title"] = Model.Id == 0 ? "Create Team Member" : "Edit Team Member";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Upsert" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Role" class="control-label"></label>
+        <input asp-for="Role" class="form-control" />
+        <span asp-validation-for="Role" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label">Upload Photo</label>
+        <input type="file" name="Photo" class="form-control" />
+        @if (!string.IsNullOrEmpty(Model.PhotoUrl))
+        {
+            <img src="@Model.PhotoUrl" alt="Current Photo" style="width: 150px; height: auto; margin-top: 10px;" />
+        }
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="FacebookUrl" class="control-label"></label>
+        <input asp-for="FacebookUrl" class="form-control" placeholder="Optional - Facebook Profile URL" />
+        <span asp-validation-for="FacebookUrl" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="TwitterUrl" class="control-label"></label>
+        <input asp-for="TwitterUrl" class="form-control" placeholder="Optional - Twitter Profile URL" />
+        <span asp-validation-for="TwitterUrl" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LinkedInUrl" class="control-label"></label>
+        <input asp-for="LinkedInUrl" class="form-control" placeholder="Optional - LinkedIn Profile URL" />
+        <span asp-validation-for="LinkedInUrl" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="InstagramUrl" class="control-label"></label>
+        <input asp-for="InstagramUrl" class="form-control" placeholder="Optional - Instagram Profile URL" />
+        <span asp-validation-for="InstagramUrl" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+</form>

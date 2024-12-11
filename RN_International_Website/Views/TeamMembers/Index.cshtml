@@ -1,0 +1,79 @@
+﻿@model IEnumerable<RN_International_Website.Models.TeamMember>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Upsert">Create New</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Role)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().PhotoUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().FacebookUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().TwitterUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().LinkedInUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().InstagramUrl)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Role)
+                </td>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.PhotoUrl))
+                    {
+                        <img src="@item.PhotoUrl" alt="Photo of @item.Name" style="width: 150px; height: auto; margin-top: 10px;" />
+                    }
+                    else
+                    {
+                        <span>No photo available</span>
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FacebookUrl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TwitterUrl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LinkedInUrl)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InstagramUrl)
+                </td>
+                <td>
+                    <a asp-action="Upsert" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
